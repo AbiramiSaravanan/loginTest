@@ -13,12 +13,6 @@ const User = require('./models/users');
 
 //Route path
 const users = require('./routes/api/users');
-const cartitems = require('./routes/api/cartitems');
-const products = require('./routes/api/products');
-const categories = require('./routes/api/categories');
-const subcategory = require('./routes/api/subcategory');
-
-const orders = require('./routes/api/orders');
 
 
 // passport configure
@@ -99,24 +93,18 @@ mongoose.connect(db, { useNewUrlParser: true }, (err, database) =>{
   //app.listen(port, ()=> console.log(`Listening on port ${port}`));
 });
 
-const checkLogin = (req,res,next) => {
-  if(!req.session.userId){
-    res.redirect('/login')
-  }
-  else{
-    next()
-  }
-}
+// const checkLogin = (req,res,next) => {
+//   if(!req.session.userId){
+//     res.redirect('/login')
+//   }
+//   else{
+//     next()
+//   }
+// }
 app.get('/',(req,res)=>res.send("MM"))
 
 // Routes
 app.use("/api/users", users);
-app.use("/api/categories",   categories);
-//app.use("/api/subcategory", subcategory);
-app.use("/api/products", products);
-app.use("/api/cartitems", cartitems);
-app.use("/api/orders", orders);
-
 
 
 

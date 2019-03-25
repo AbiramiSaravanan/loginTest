@@ -1,4 +1,4 @@
 module.exports = {
-    mongoURI : 'mongodb://storeadmin:root1234@ds011462.mlab.com:11462/storeadmin',
+    mongoURI : 'mongodb://senthilprabhu:root1234@ds261969.mlab.com:61969/reactexpress',
     secretOrKey : "mysupersecret"
 }

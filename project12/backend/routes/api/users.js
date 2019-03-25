@@ -37,24 +37,24 @@ const router = express.Router();
 
 // @route POST register
 router.post('/register', (req, res) => {
-    const { errors, isValid } = validateRegisterInput(req.body);
+    console.log("YES")
+//    const { errors, isValid } = validateRegisterInput(req.body);
 
-    if(!isValid){
-        return res.status(400).json(errors);
-    }
+    // if(!isValid){
+    //     return res.status(400).json(errors);
+    // }
 
-    User.findOne({ mobilenumber : req.body.mobilenumber}).then(user => {
+    User.findOne({ email : req.body.email}).then(user => {
         if(user){
-            return res.status(400).json({ mobilenumber : "Mobile number already registerd"});
+            return res.status(400).json({ email : "Mobile number already registerd"});
         }
         const newUser = new User({
          //   role : req.body.role,
             name: req.body.name,
-            mobilenumber : req.body.mobilenumber,
+            
             email : req.body.email,
             password : req.body.password,
-            address : req.body.address,
-            landmark : req.body.landmark
+            
         });
 
         //Hashing password
